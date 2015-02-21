@@ -213,30 +213,6 @@ module Jekyll
       sha1[0, lenght.to_i]
     end
 
-    # Returns a, ready to use, navigation list of all pages that have
-    # <tt>navigation</tt> set in their YAML front matter. The list is sorted by
-    # the value of <tt>navigation</tt>.
-    #
-    #   {{ site | navigation_list:page }}
-    def navigation_list(site, page)
-      pages = site['pages'].select { |p|
-        p.data['navigation'] && p.data['title']
-      }.sort_by { |p| p.data['navigation'] }
-
-      list = []
-      list << pages.map { |p|
-        active = (p.url == page['url']) || (page.has_key?('next') && File.join(p.dir, p.basename) == '/index')
-        navigation_list_item(p.url, p.data['title'], active)
-      }
-      list.join("\n")
-    end
-
-    def navigation_list_item(url, title, active = false)
-      url = url.gsub(%r{/index\.html$}, '/')
-      a_class = active ? ' class="active"' : ''
-      %Q{<li#{a_class}><a #{a_class} href="#{url}">#{title}</a></li>}
-    end
-
     # Returns an array of all episode feeds named by the convetion
     # 'episodes.<episode_file_format>.rss' within the root directory. Also it
     # contains all additional feeds specified by 'additional_feeds' in the
