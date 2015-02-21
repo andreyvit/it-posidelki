@@ -1,0 +1,13 @@
+title: IT-посиделки
+url: http://айтипи.рф
+description: Андрей Таранцов и Тимофей Васенин болтают о новостях про маки, виндоус и мобильники, а также обо всем остальном.
+language: ru
+author: Андрей Таранцов, Тимофей Васенин
+explicit: 'yes'
+email: andrey@tarantsov.com
+audio_base_url: http://files.tarantsov.com
+license: хз
+subtitle: А ну-ка, давай-ка.
+keywords: [мак, винда, Windows, Mac, Apple, новости, технологии]
+itunes_categories: [Technology]
+permalink: "/:title/"
