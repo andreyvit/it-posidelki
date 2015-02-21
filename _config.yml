@@ -2,6 +2,7 @@ title: IT-посиделки
 url: http://айтипи.рф
 safe_url: http://xn--80aqac5aq.xn--p1ai
 google_search_host: айтипи.рф
+subtitle: Обсуждение новостей о маках, виндоусах, айосах, андроидах и всем остальном
 description: Андрей Таранцов и Тимофей Васенин болтают о новостях про маки, виндоус и мобильники, а также обо всем остальном.
 home_title: "IT-посиделки («ай-ти-пиии»)"
 home_subtitle: "Еженедельная болтовня про маки, виндоус, айос, андроид и все остальное"
@@ -11,7 +12,6 @@ explicit: 'yes'
 email: andrey@tarantsov.com
 audio_base_url: http://files.tarantsov.com
 license: хз
-subtitle: А ну-ка, давай-ка.
 keywords: [мак, винда, Windows, Mac, Apple, новости, технологии]
 itunes_categories: [Technology]
 permalink: "/:title/"
