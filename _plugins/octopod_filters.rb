@@ -232,6 +232,7 @@ module Jekyll
     end
 
     def navigation_list_item(url, title, active = false)
+      url = url.gsub(%r{/index\.html$}, '/')
       a_class = active ? ' class="active"' : ''
       %Q{<li#{a_class}><a #{a_class} href="#{url}">#{title}</a></li>}
     end
