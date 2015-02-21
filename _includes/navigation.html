@@ -1,0 +1,24 @@
+<div class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">{{ site.title }}</a>
+    </div>
+
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        {{ site | navigation_list:page }}
+      </ul>
+
+      <form class="navbar-form navbar-right" role="search" action="http://google.com/search" method="get">
+        <input type="text" class="search-query" name="q" results="0" placeholder="Search">
+        <input type="hidden" name="q" value="site:{{ site.google_search_host }}" />
+      </form>
+    </div>
+  </div>
+</div>

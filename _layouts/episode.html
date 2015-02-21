@@ -1,4 +1,25 @@
 ---
 layout: default
 ---
-{{ content }}
+<div class="container">
+
+<section id="{{ page | slug }}" class="active">
+  <div class="page-header">
+    <h1>
+      <a class='episode_title' href='{{ site.url }}{{ page.url }}#{{ page.id | sha1:8 }}'>{{ page.title }}</a>
+      <small>{{ page.date | date_to_long_string }}</small>
+    </h1>
+  </div>
+
+  {{ content }}
+
+  {% if page.audio %}
+    <a class="btn btn-primary" href="{{ site.audio_base_url }}/{{ page.audio.file }}">Download</a>
+  {% endif %}
+
+  <hr>
+
+  {{ page | web_player:site }}
+</section>
+
+</div>

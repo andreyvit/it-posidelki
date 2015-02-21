@@ -1,9 +1,13 @@
 ---
-title: {{ site.config }}
+title: Эпизоды
 layout: default
 navigation: 0
 ---
 
+<div class="container">
+
 {% for post in site.posts %}
-<p><a href="{{ post.url }}">{{ post.title }}</a></p>
+<p><a href="{{ post.url }}">{{ post.number }}: {{ post.title }}</a></p>
 {% endfor %}
+
+</div>

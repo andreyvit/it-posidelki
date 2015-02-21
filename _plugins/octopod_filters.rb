@@ -45,19 +45,6 @@ module Jekyll
       first.empty? ? second : first
     end
 
-    # Returns the value of a given hash. Is no key as second parameter given, it
-    # trys first "mp3", than "m4a" and than it will return a more or less random
-    # value.
-    #
-    #   {{ post.audio | audio:"m4a" }} => "my-episode.m4a"
-    def audio(hsh, key = nil)
-      if key.nil?
-        hsh['mp3'] ? hsh['mp3'] : hsh['m4a'] ? hsh['m4a'] : hsh.values.first
-      else
-        hsh[key]
-      end
-    end
-
     # Returns the MIME-Type of a given file format.
     #
     #   {{ "m4a" | mime_type }} => "audio/mp4a-latm"
@@ -72,23 +59,11 @@ module Jekyll
       "audio/#{types[format]}"
     end
 
-    # Returns the size of a given file in bytes. If there is just a filename
-    # without a path, this method assumes that the file is an episode audio file
-    # which lives in /episodes.
-    #
-    #   {{ "example.m4a" | file_size }} => 4242
-    def file_size(path, rel = nil)
-      return 0 if path.nil?
-      path = path =~ /\// ? path : File.join('episodes', path)
-      path = rel + path if rel
-      File.size(path)
-    end
-
     # Returns a slug based on the id of a given page.
     #
     #   {{ page | slug }} => '2012_10_02_octopod'
     def slug(page)
-      page['id'][1..-1].gsub('/', '_')
+      page['id'][1..-1].gsub('/', '-')
     end
 
     # Splits a chapter, like it is written to the post YAML front matter into
@@ -120,10 +95,9 @@ module Jekyll
     #
     #   {{ page | audio_tag:site }}
     def audio_tag(page, site)
-      out = %Q{<audio id="#{slug(page)}_player" preload="none">\n}
-      out + page['audio'].map { |format, filename|
-        %Q{<source src="#{site['url']}/episodes/#{ERB::Util.url_encode(filename)}" type="#{mime_type(format)}"></source>}
-      }.join("\n") + "\n</audio>\n"
+      %Q{<audio id="#{slug(page)}_player" preload="none">\n} +
+      %Q{<source src="#{site['audio_base_url']}/#{ERB::Util.url_encode(page['audio']['name'])}" type="audio/mpeg"></source>\n} +
+      %Q{</audio>\n}
     end
 
     # Returns the web player for the episode of a given page.
@@ -249,13 +223,11 @@ module Jekyll
         p.data['navigation'] && p.data['title']
       }.sort_by { |p| p.data['navigation'] }
 
-      list =  ['<ul class="nav">']
+      list = []
       list << pages.map { |p|
         active = (p.url == page['url']) || (page.has_key?('next') && File.join(p.dir, p.basename) == '/index')
-        navigation_list_item(File.join(site['url'], p.url), p.data['title'], active)
+        navigation_list_item(p.url, p.data['title'], active)
       }
-      list << ['</ul>']
-
       list.join("\n")
     end
 

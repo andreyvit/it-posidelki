@@ -1,5 +1,6 @@
 ---
-title: "01: Apple переизобрела колесо"
+number: "01"
+title: "Apple переизобрела колесо"
 layout: episode
 duration: "47:41"
 audio:

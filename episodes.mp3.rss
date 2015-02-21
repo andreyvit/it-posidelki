@@ -38,10 +38,8 @@ layout: null
       <link>{{ site.url }}{{ post.url }}</link>
       <comments>{{ site.url }}{{ post.url }}#disqus_thread</comments>
       <pubDate>{{ post.date | time_to_rssschema }}</pubDate>
-      {% for category in post.categories %}
-      <category><![CDATA[{{ category }}]]></category>
-      {% endfor %}
-      <guid isPermaLink="false">{{ site.url }}{{ post.url }}</guid>
+      {% for category in post.categories %}<category><![CDATA[{{ category }}]]></category>{% endfor %}
+      <guid isPermaLink="false">posidelki{{ post.id }}</guid>
       <description><![CDATA[{{ post.content | expand_urls: site.url | cdata_escape }}]]></description>
       <content:encoded><![CDATA[{{ post.content | expand_urls: site.url | cdata_escape }}]]></content:encoded>
       <enclosure url="{{ site.audio_base_url }}/{{ post.audio.name }}" length="{{ post.audio.size }}" type="audio/mpeg" />
