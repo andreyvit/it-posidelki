@@ -128,12 +128,12 @@ module Jekyll
 
       out = audio_tag(page, site)
       out << "<script>\n$('##{slug(page)}_player').podlovewebplayer({\n"
-      out << "poster: '#{site['url']}#{(options['episode_cover'] || '/img/logo-360x360.png')}',\n"
+      out << "poster: '#{(options['episode_cover'] || '/img/logo-360x360.png')}',\n"
       out << "subtitle: '#{j(options['subtitle'])}',\n" if options['subtitle']
       out << "chapters: '#{options['chapters'].map { |c| j(c) }.join(%Q{'+"\\n"+'})}',\n" if options['chapters']
       out << "summary: '#{j(options['summary'])}',\n" if options['summary']
       out << "duration: '#{string_of_duration(options['duration'])}',\n"
-      out << "permalink: '#{site['url']}#{page['url']}',\n"
+      out << "permalink: '#{page['url']}',\n"
 
       out << simple_keys.map { |k|
         "#{k}: #{(k = options[k].to_s) =~ /\A(true|false|[0-9\.]+)\z/ ? k : "'#{j(k)}'"}"
@@ -297,6 +297,10 @@ module Jekyll
       episode_feeds(site, except).map { |f|
         %Q{<atom:link rel="alternate" href="#{f.last}" type="application/rss+xml" title="#{f.first || f.last}"/>}
       }.join("\n")
+    end
+
+    def date_to_long_string_ru(date)
+      date.strftime('%d.%m.%Y')
     end
 
   end

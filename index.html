@@ -1,13 +1,40 @@
 ---
 title: Эпизоды
+full_title: IT-посиделки
 layout: default
 navigation: 0
 ---
 
 <div class="container">
 
+  <div class="page-header">
+    <h1>
+      IT-посиделки («ай-ти-пиии»)<br>
+      <small>Еженедельная болтовня про маки, виндоус, айос, андроид и все остальное</small>
+    </h1>
+  </div>
+
 {% for post in site.posts %}
-<p><a href="{{ post.url }}">{{ post.number }}: {{ post.title }}</a></p>
+
+<section id="{{ post | slug }}" class="active">
+  <h2>
+    <a href="{{ post.url }}">{{ post.number }}: {{ post.title }}</a>
+  </h2>
+
+  <div style="margin-top: 2em; margin-bottom: 1.5em">
+    <audio id="#{page|slug}_player" preload="auto" controls style="width: 100%">
+      <source src="{{ site.audio_base_url }}/{{page.audio.name}}" type="audio/mpeg"></source>
+    </audio>
+
+    <a href="{{ site.audio_base_url }}/{{page.audio.name}}">Скачать MP3</a>
+  </div>
+
+  {{ post.content }}
+
+  <hr>
+
+</section>
+
 {% endfor %}
 
 </div>

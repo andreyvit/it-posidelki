@@ -6,20 +6,20 @@ layout: default
 <section id="{{ page | slug }}" class="active">
   <div class="page-header">
     <h1>
-      <a class='episode_title' href='{{ site.url }}{{ page.url }}#{{ page.id | sha1:8 }}'>{{ page.title }}</a>
-      <small>{{ page.date | date_to_long_string }}</small>
+      {{ page.number }}: {{ page.title }}
     </h1>
   </div>
 
-  {{ content }}
+  <audio id="#{page|slug}_player" preload="auto" controls style="width: 100%">
+    <source src="{{ site.audio_base_url }}/{{page.audio.name}}" type="audio/mpeg"></source>
+  </audio>
 
-  {% if page.audio %}
-    <a class="btn btn-primary" href="{{ site.audio_base_url }}/{{ page.audio.file }}">Download</a>
-  {% endif %}
+  <a href="{{ site.audio_base_url }}/{{page.audio.name}}">Скачать MP3</a>
 
   <hr>
 
-  {{ page | web_player:site }}
+  {{ content }}
+
 </section>
 
 </div>
