@@ -9,8 +9,8 @@
     {% if site.description %}<meta name="description" content="{{ site.description | markdownify | strip_html }}">{% endif %}
     {% if site.author %}<meta name="author" content="{{ site.author }}">{% endif %}
 
-    <!-- Bootstrap -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -18,9 +18,22 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script src="//use.typekit.net/req5lcl.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
   </head>
   <body>
     {% include navigation.html %}
+
+    <div class="container">
+      <div class="page-header">
+        <h1>
+          {{ site.home_title }}<br>
+          <small>{{ site.home_subtitle }}</small>
+        </h1>
+      </div>
+    </div>
+
     {{ content }}
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

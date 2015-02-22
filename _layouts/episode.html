@@ -4,19 +4,14 @@ layout: default
 <div class="container">
 
 <section id="{{ page | slug }}" class="active">
-  <div class="page-header">
+  <div class="page-subheader">
     <h1>
       {{ page.number }}: {{ page.title }}
     </h1>
   </div>
 
-  <audio id="#{page|slug}_player" preload="auto" controls style="width: 100%">
-    <source src="{{ page | audio_url:site }}" type="audio/mpeg"></source>
-  </audio>
-
-  <a href="{{ page | audio_url:site }}">Скачать MP3</a>
-
-  <hr>
+  {% assign post = page %}
+  {% include player.html %}
 
   {{ content }}
 

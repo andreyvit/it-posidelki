@@ -7,13 +7,6 @@ navigation: 0
 
 <div class="container">
 
-  <div class="page-header">
-    <h1>
-      {{ site.home_title }}<br>
-      <small>{{ site.home_subtitle }}</small>
-    </h1>
-  </div>
-
 {% for post in site.posts %}
 
 <section id="{{ post | slug }}" class="active">
@@ -21,13 +14,7 @@ navigation: 0
     <a href="{{ post.url }}">{{ post.number }}: {{ post.title }}</a>
   </h2>
 
-  <div style="margin-top: 2em; margin-bottom: 1.5em">
-    <audio id="#{post|slug}_player" preload="metadata" controls style="width: 100%">
-      <source src="{{ post | audio_url:site }}" type="audio/mpeg"></source>
-    </audio>
-
-    <a href="{{ post | audio_url:site }}">Скачать MP3</a>
-  </div>
+  {% include player.html %}
 
   {{ post.content }}
 

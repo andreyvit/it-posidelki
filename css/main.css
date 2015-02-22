@@ -1,0 +1,11 @@
+body { font-family: "pt-sans"; }
+.nav, .navbar-brand, .page-header, h1, h2 { font-family: "trajan-sans-pro", sans-serif; }
+
+.page-header { border-bottom: none; }
+.page-header h1 { font-weight: 400; }
+.page-header h1 small { font-weight: 300; }
+.page-subheader { margin-bottom: 1.5em; }
+h1, h2 { font-weight: 300 }
+
+.audio { margin-top: 2em; margin-bottom: 1.5em; }
+.audio-links { font-size: 85%; }
