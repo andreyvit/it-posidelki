@@ -23,10 +23,10 @@ navigation: 0
 
   <div style="margin-top: 2em; margin-bottom: 1.5em">
     <audio id="#{post|slug}_player" preload="metadata" controls style="width: 100%">
-      <source src="{{ site.audio_base_url }}/{{post.audio.name}}" type="audio/mpeg"></source>
+      <source src="{{ post | audio_url:site }}" type="audio/mpeg"></source>
     </audio>
 
-    <a href="{{ site.audio_base_url }}/{{post.audio.name}}">Скачать MP3</a>
+    <a href="{{ post | audio_url:site }}">Скачать MP3</a>
   </div>
 
   {{ post.content }}

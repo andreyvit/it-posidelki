@@ -42,7 +42,7 @@ layout: null
       <guid isPermaLink="false">posidelki{{ post.id }}</guid>
       <description><![CDATA[{{ post.content | expand_urls: site.url | cdata_escape }}]]></description>
       <content:encoded><![CDATA[{{ post.content | expand_urls: site.url | cdata_escape }}]]></content:encoded>
-      <enclosure url="{{ site.audio_base_url }}/{{ post.audio.name }}" length="{{ post.audio.size }}" type="audio/mpeg" />
+      <enclosure url="{{ post | audio_url:site }}" length="{{ post.audio.size }}" type="audio/mpeg" />
       <itunes:keywords>{{ post.tags }}</itunes:keywords>
       <itunes:subtitle>{{ post.subtitle }}</itunes:subtitle>
       <itunes:summary>{{ post.summary }}</itunes:summary>

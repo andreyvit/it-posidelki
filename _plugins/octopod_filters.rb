@@ -90,13 +90,20 @@ module Jekyll
       end
     end
 
+    def audio_url(page, site)
+      base = site['audio_base_path']
+      file = ERB::Util.url_encode(page['audio']['name'])
+      "http://media.blubrry.com/posidelki/#{base}/#{file}"
+    end
+
     # Returns an <audio>-tag for a given page with <source>-tags in it for every
     # audio file in the page's YAML front matter.
     #
     #   {{ page | audio_tag:site }}
     def audio_tag(page, site)
+      url = audio_url(page, site)
       %Q{<audio id="#{slug(page)}_player" preload="none">\n} +
-      %Q{<source src="#{site['audio_base_url']}/#{ERB::Util.url_encode(page['audio']['name'])}" type="audio/mpeg"></source>\n} +
+      %Q{<source src="#{url}" type="audio/mpeg"></source>\n} +
       %Q{</audio>\n}
     end
 
