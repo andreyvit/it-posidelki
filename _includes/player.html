@@ -5,5 +5,6 @@
 
   <ul class="audio-links list-inline">
     <li><a href="{{ post | audio_url:site }}">Скачать MP3</a></li>
+    <li><a href="mailto:{{ site.feedback_email }}?subject={{ post.number }}">Написать нам</a></li>
   </ul>
 </div>
