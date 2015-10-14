@@ -39,6 +39,11 @@ EPISODE_TITLE="Маленькая неудача"
 EPISODE_SUMMARY="Наши впечатления от Windows 10, ее проблемы с приватностью, экосистемой и новым браузером."
 EPISODE_SAMPLE_RATE=44.1
 
+EPISODE_NUMBER=08
+EPISODE_TITLE="(А)моральная реклама"
+EPISODE_SUMMARY="Обсуждаем эстафету топовых Ad Blocker-ов под IOS и моральные аспекты блокировки рекламы в целом."
+EPISODE_SAMPLE_RATE=44.1
+
 INPUT_WAV_FILE="${SHOW_PREFIX}0${EPISODE_NUMBER}.wav"
 OUTPUT_MP3_FILE="${INPUT_WAV_FILE%%.wav}.mp3"
 
