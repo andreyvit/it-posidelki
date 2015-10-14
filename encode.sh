@@ -9,7 +9,7 @@
 # Requires lame
 # With Homebrew on Mac OS X: brew install lame
 
-cd ~/"Documents/АйТиПи"
+cd ~/Recordings
  
 SHOW_AUTHOR="Айти-посиделки"
 SHOW_PREFIX="IT-posidelki-"
