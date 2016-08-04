@@ -11,7 +11,8 @@
 
 cd ~/Recordings
  
-SHOW_AUTHOR="Айти-посиделки"
+SHOW_AUTHOR="АйТиПи"
+
 SHOW_PREFIX="IT-posidelki-"
  
 EPISODE_NUMBER=03
@@ -44,6 +45,14 @@ EPISODE_TITLE="(А)моральная реклама"
 EPISODE_SUMMARY="Обсуждаем эстафету топовых Ad Blocker-ов под IOS и моральные аспекты блокировки рекламы в целом."
 EPISODE_SAMPLE_RATE=44.1
 
+
+SHOW_PREFIX="AiTiPi-"
+
+EPISODE_NUMBER=09
+EPISODE_TITLE="Неинформированное согласие"
+EPISODE_SUMMARY="Пилотный эпизод нового формата, обсуждающий дилемму телеметрии в стиле винды против стиля мака с айос, а также про самсунг, отпечатки пальцев, глюки скайпа, социалки против чатов, сяоми, активацию и прочие грехи майкрософта"
+EPISODE_SAMPLE_RATE=44.1
+
 INPUT_WAV_FILE="${SHOW_PREFIX}0${EPISODE_NUMBER}.wav"
 OUTPUT_MP3_FILE="${INPUT_WAV_FILE%%.wav}.mp3"
 
@@ -51,7 +60,7 @@ S3_BUCKET="files.tarantsov.com"
 S3_PREFIX=""
 
 # Artwork: ideally 1400x1400, but less than 128 KB to maximize compatibility
-ARTWORK_JPG_FILENAME="${HOME}/Dropbox/IT-посиделки/posidelki-logo.png"
+ARTWORK_JPG_FILENAME="${HOME}/Dropbox/АйТиПи/АйТиПи.png"
  
 if true; then
     # Output quality (kbps): 96 or 64 recommended
