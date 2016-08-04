@@ -18,3 +18,15 @@ To build and publish the site:
 
     jekyll build
     s3_website push
+
+
+Effects
+-------
+
+Tube-modeled Compressor:
+
+* Threshold -30 db
+* Gain 16 db
+* Ratio 12:1
+* Attack 10 ms
+* Release 100 ms
