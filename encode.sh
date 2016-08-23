@@ -53,6 +53,11 @@ EPISODE_TITLE="Неинформированное согласие"
 EPISODE_SUMMARY="Пилотный эпизод нового формата, обсуждающий дилемму телеметрии в стиле винды против стиля мака с айос, а также про самсунг, отпечатки пальцев, глюки скайпа, социалки против чатов, сяоми, активацию и прочие грехи майкрософта"
 EPISODE_SAMPLE_RATE=44.1
 
+EPISODE_NUMBER=10
+EPISODE_TITLE="Нейромама спешиал"
+EPISODE_SUMMARY="Специальный выпуск про нейромаму!"
+EPISODE_SAMPLE_RATE=44.1
+
 INPUT_WAV_FILE="${SHOW_PREFIX}0${EPISODE_NUMBER}.wav"
 OUTPUT_MP3_FILE="${INPUT_WAV_FILE%%.wav}.mp3"
 
@@ -89,5 +94,8 @@ audio:
 END
 
 if true; then
-    s3cmd put -P "$OUTPUT_MP3_FILE" "s3://${S3_BUCKET}/${S3_PREFIX}"
+    # echo s3cmd put -P "$OUTPUT_MP3_FILE" "s3://${S3_BUCKET}/${S3_PREFIX}"
+    # s3cmd put -P "$OUTPUT_MP3_FILE" "s3://${S3_BUCKET}/${S3_PREFIX}"
+    echo aws s3 cp --acl public-read "$OUTPUT_MP3_FILE" "s3://${S3_BUCKET}/${S3_PREFIX}"
+    aws s3 cp --acl public-read "$OUTPUT_MP3_FILE" "s3://${S3_BUCKET}/${S3_PREFIX}"
 fi
