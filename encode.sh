@@ -58,6 +58,11 @@ EPISODE_TITLE="Нейромама спешиал"
 EPISODE_SUMMARY="Специальный выпуск про нейромаму!"
 EPISODE_SAMPLE_RATE=44.1
 
+EPISODE_NUMBER=X01
+EPISODE_TITLE="Выбор факультета Алисы"
+EPISODE_SUMMARY="Куда пойти учиться несчастному школьнику?"
+EPISODE_SAMPLE_RATE=44.1
+
 INPUT_WAV_FILE="${SHOW_PREFIX}0${EPISODE_NUMBER}.wav"
 OUTPUT_MP3_FILE="${INPUT_WAV_FILE%%.wav}.mp3"
 
